@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @postLength = Post.all.length
   end
 
   def new
@@ -28,8 +29,13 @@ class PostsController < ApplicationController
 
   def post_data
     post = Post.find(params[:id])
-    render plain: post.description
+    render json: post
   end
+
+  # def body
+  #   post = set_post
+  #   render plain: post.description
+  # end
 
 private
   # Use callbacks to share common setup or constraints between actions.
