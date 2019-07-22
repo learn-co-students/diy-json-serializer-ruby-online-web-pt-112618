@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
-  end
+    @postLength = Post.all.length
+  end	  
 
   def new
     @post = Post.new
